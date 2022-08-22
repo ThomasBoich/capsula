@@ -24,10 +24,9 @@
         </li>
       </ul>
       <form class="d-flex">
-<!--        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-          <button type="button" class="btn btn-primary" style="margin: 0 12px 0 0;">Войти в аккант</button>
-          <button type="button" class="btn btn-secondary">Регистрация</button>
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+
       </form>
     </div>
   </div>
@@ -54,8 +53,10 @@
         </li>
       </ul>
       <form class="d-flex col-lg-4">
-        <input class="form-control mr-2" type="search" placeholder="Поиск" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">ОК</button>
+<!--        <input class="form-control mr-2" type="search" placeholder="Поиск" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">ОК</button>-->
+                  <button type="button" class="btn btn-primary" style="margin: 0 12px 0 0;">Войти в аккант</button>
+          <button type="button" class="btn btn-secondary">Регистрация</button>
       </form>
     </div>
   </div>
@@ -63,9 +64,8 @@
 <div class="container-fluid" data-wow-delay=".2s" style="height: 100px;"></div>
 <div class="container col-lg-7  wow animated fadeInUp">
   <div class="col-md-2" style="float:left;position:sticky;top: 90px;margin: 95px 0px 0px 0px;">
-    {% for list_category in category %}
-    <div class="row"><a href="category/{{ list_category.pk }}/" style="font-size: 20px;
-    color: #191919;line-height:1.9;">{{ list_category }}</a></div>
+    {% for item in categories %}
+    <div class="row"><a href="category/{{ item.id }}/" style="font-size: 20px;color: #191919;line-height:1.9;">{{ item }}</a></div>
     {% endfor %}
 
   </div>
