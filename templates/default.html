@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title_html %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style type="text/css">
+        .navbar-brand{padding-top:0;}
+    </style>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Capsula</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Capsula</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto mb-2 mb-md-0 col-lg-8">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Главная</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link active" href="/news">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contacts" tabindex="-1" aria-disabled="false">Контакты</a>
+        </li>
+      </ul>
+      <form class="d-flex col-lg-4">
+        <input class="form-control mr-2" type="search" placeholder="Поиск" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">ОК</button>
+      </form>
+    </div>
+  </div>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

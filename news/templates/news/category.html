@@ -1,10 +1,10 @@
-{% extends 'news/default.html' %}{% load static %}
-{% block content %}
-<style type="text/css">
-  .news-img img{
-    width:100%;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category.title }}</title>
+</head>
+<body>
 <nav class="navbar fixed-top navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Capsula</a>
@@ -60,48 +60,11 @@
     </div>
   </div>
 </nav>
-<div class="container-fluid" data-wow-delay=".2s" style="height: 100px;"></div>
-<div class="container col-lg-7  wow animated fadeInUp">
-  <div class="col-md-2" style="float:left;position:sticky;top: 90px;margin: 95px 0px 0px 0px;">
+
     {% for list_category in category %}
-    <div class="row"><a href="category/{{ list_category.pk }}/" style="font-size: 20px;
+    <div class="row"><a href="" style="font-size: 20px;
     color: #191919;line-height:1.9;">{{ list_category }}</a></div>
     {% endfor %}
 
-  </div>
-  <div class="container col-lg-8">
-      <h1 class="col-lg-12" style="text-align: left;float:left;">Статьи </h1>
-    <p>Найдено статей: {{ news.count }}</p>
-      <div class="col-lg-12" style="height:0px;"></div>
-    <hr />
-    {% for item in news %}
-<div class="card col-lg-12 " style="margin-bottom: 20px;">
-  <h5 class="card-header" style="padding-top: 12px;
-    font-size: 17px;
-    padding-bottom: 14px;
-    color: #000000;">{{ item.category }}</h5>
-      <div class="col-md-12 col-lg-12 news-img">
-      {% if item.photo %}
-      <img src="{{ item.photo.url }}"  alt="......">
-      {% else %}
-      <img src="https://picsum.photos/seed/picsum/200/300" alt="">
-      {% endif %}
-    </div>
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h2 class="card-title"><strong>{{ item.title }}</strong></h2>
-        <p class="card-text" style="overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;">{{ item.content }}</p>
-        <p class="card-text"><small class="text-muted">{{ item.created_att|date:"Y-m-d H:i:s" }}</small></p>
-        <a href="#" class="btn btn-primary">Читать полностью</a>
-      </div>
-    </div>
-  </div>
-</div>
-    {% endfor %}
-    </div>
-</div>
-{% endblock %}
+</body>
+</html>
