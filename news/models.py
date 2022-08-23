@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -35,6 +36,9 @@ class News(models.Model):
 class Category(models.Model):
     title = models.CharField('Название категории', max_length=140, db_index=True)
     content = models.CharField('Описание категории', max_length=140)
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"category_id": self.pk})
 
     def __str__(self):
         return self.title

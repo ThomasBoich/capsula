@@ -1,0 +1,4 @@
+{% for item in categories %}
+<div class="row"><a href="{{ item.get_absolute_url }}" style="font-size: 20px;color: #191919;line-height:1.9;">
+    {{ item }}</a></div>
+{% endfor %}

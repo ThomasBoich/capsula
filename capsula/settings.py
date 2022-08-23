@@ -23,7 +23,7 @@ DATABASES = {
 
 INSTALLED_APPS = [
     "index.apps.IndexConfig",
-    'news.apps.NewsConfig','chat.apps.ChatConfig',
+    'news.apps.NewsConfig', 'chat.apps.ChatConfig',
     'jazzmin',
     # 'ckeditor',
     # 'ckeditor_uploader',
@@ -53,7 +53,7 @@ ROOT_URLCONF = "capsula.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

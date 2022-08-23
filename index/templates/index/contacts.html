@@ -1,67 +1,10 @@
-{% extends 'news/default.html' %}{% load static %}
+{% extends 'default.html' %}{% load static %}
 {% block content %}
-<nav class="navbar fixed-top navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Capsula</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="">Capsula</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto mb-2 mb-md-0 col-lg-8">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Главная</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link " href="/news">Новости</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link " href="/chat" tabindex="-1" aria-disabled="false">Чат</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link active" href="/contacts" tabindex="-1" aria-disabled="false">Контакты</a>
-        </li>
-      </ul>
-      <form class="d-flex col-lg-2" style="margin: 0 1.2% 0 0;">
-<!--        <input class="form-control mr-2" type="search" placeholder="Поиск" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">ОК</button>-->
-<!--          <button type="button" class="btn btn-primary" style="margin: 0 12px 0 0;">Войти в аккант</button>-->
-<!--          <button type="button" class="btn btn-secondary">Регистрация</button>-->
-          <button type="button" class="btn btn-primary" style="margin: 0 12px 0 0;">Войти в аккант</button>
-          <button type="button" class="btn btn-secondary">Регистрация</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid" style="height: 65px;"></div>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <!------ Include the above in your HEAD tag ---------->
 <style type="text/css">
   /*@import url("https://fonts.googleapis.com/css?family=Rubik:500,700|Roboto:400,600");*/
@@ -116,88 +59,97 @@ fieldset[disabled] .form-control,
 fieldset[disabled] .form-group .form-control {
     background-color: rgba(0, 0, 0, 0)
 }
+
+
+
 </style>
-  <!-- Contact Us Section -->
-    <section class="Material-contact-section section-padding section-dark">
-      <div class="container">
-          <div class="row">
-              <!-- Section Titile -->
-              <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
-                  <h1 class="section-title">{% for item in contacts_info %}{{ item.title }}{% endfor %}</h1>
-              </div>
-          </div>
-          <div class="row">
-              <!-- Section Titile -->
-              <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
-                <p>{% for item in contacts_info %}{{ item.content }}{% endfor %}.ThepointofusingLoremIpsumisthatithasamore-or-lessnormaldistributionofletters,asopposedtousingContent.</p>
+<!-- Contact Us Section -->
+<section class="Material-contact-section section-padding section-dark">
+    <div class="container">
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                <h1 class="section-title">{% for item in contacts_info %}{{ item.title }}{% endfor %}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+                <p>{% for item in contacts_info %}{{ item.content }}{% endfor %}</p>
 
                 <div class="find-widget">
-                 Компания:  <a href="https://hostriver.ro">{% for item in contacts_info %}{{ item.company }}{% endfor %}</a>
+                    Компания: <a href="https://hostriver.ro">
+                    {% for item in contacts_info %}{{ item.company }}{%endfor%}</a>
                 </div>
                 <div class="find-widget">
-                 ОГРН:  <a href="https://hostriver.ro">{% for item in contacts_info %}{{ item.ogrn }}{% endfor %}</a>
+                    ОГРН: <a href="https://hostriver.ro">{% for item in contacts_info %}{{ item.ogrn }}{% endfor %}</a>
                 </div>
                 <div class="find-widget">
-                 ИНН:  <a href="https://hostriver.ro">{% for item in contacts_info %}{{ item.inn }}{% endfor %}</a>
+                    ИНН: <a href="https://hostriver.ro">{% for item in contacts_info %}{{ item.inn }}{% endfor %}</a>
                 </div>
                 <div class="find-widget">
-                 Адрес: <a href="#">{% for item in contacts_info %}{{ item.adress }}{% endfor %}</a>
+                    Адрес: <a href="#">{% for item in contacts_info %}{{ item.adress }}{% endfor %}</a>
                 </div>
                 <div class="find-widget">
-                  Телефон:  <a href="#">{% for item in contacts_info %}{{ item.phone }}{% endfor %}</a>
+                    Телефон: <a href="#">{% for item in contacts_info %}{{ item.phone }}{% endfor %}</a>
                 </div>
 
                 <div class="find-widget">
-                  Сайт:  <a href="https://uny.ro">{% for item in contacts_info %}{{ item.website }}{% endfor %}</a>
+                    Сайт: <a href="https://uny.ro">{% for item in contacts_info %}{{ item.website }}{% endfor %}</a>
                 </div>
                 <div class="find-widget">
-                   Врмя работы: <a href="#">{% for item in contacts_info %}{{ item }}{% endfor %}</a>
+                    Врмя работы: <a href="#">{% for item in contacts_info %}{{ item }}{% endfor %}</a>
                 </div>
-                  <div class="find-widget">
-                   Telegram: <a href="#">{% for item in contacts_info %}{{ item.telegram }}{% endfor %}</a>
+                <div class="find-widget">
+                    Telegram: <a href="#">{% for item in contacts_info %}{{ item.telegram }}{% endfor %}</a>
                 </div>
-                  <div class="find-widget">
-                   Whatsapp: <a href="#">{% for item in contacts_info %}{{ item.whatsapp }}{% endfor %}</a>
+                <div class="find-widget">
+                    Whatsapp: <a href="#">{% for item in contacts_info %}{{ item.whatsapp }}{% endfor %}</a>
                 </div>
-              </div>
-              <!-- contact form -->
-              <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
-                  <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
-                      <!-- Name -->
-                      <div class="form-group label-floating">
+            </div>
+            <!-- contact form -->
+            <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+                <form class="shake" role="form" method="post" id="contactForm" name="contact-form"
+                      data-toggle="validator">
+                    <!-- Name -->
+                    <div class="form-group label-floating">
                         <label class="control-label" for="name">Имя</label>
-                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                        <input class="form-control" id="name" type="text" name="name" required
+                               data-error="Please enter your name">
                         <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- email -->
-                      <div class="form-group label-floating">
+                    </div>
+                    <!-- email -->
+                    <div class="form-group label-floating">
                         <label class="control-label" for="email">Email</label>
-                        <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email">
+                        <input class="form-control" id="email" type="email" name="email" required
+                               data-error="Please enter your Email">
                         <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Subject -->
-                      <div class="form-group label-floating">
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-group label-floating">
                         <label class="control-label">ФИО</label>
-                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
+                        <input class="form-control" id="msg_subject" type="text" name="subject" required
+                               data-error="Please enter your message subject">
                         <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Message -->
-                      <div class="form-group label-floating">
-                          <label for="message" class="control-label">Сообщение</label>
-                          <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
-                          <div class="help-block with-errors"></div>
-                      </div>
-                      <!-- Form Submit -->
-                      <div class="form-submit mt-5">
-                          <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> SendMessage</button>
-                          <div id="msgSubmit" class="h3 text-center hidden"></div>
-                          <div class="clearfix"></div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-    </section>
-
-
+                    </div>
+                    <!-- Message -->
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Сообщение</label>
+                        <textarea class="form-control" rows="3" id="message" name="message" required
+                                  data-error="Write your message"></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Form Submit -->
+                    <div class="form-submit mt-5">
+                        <button class="btn btn-common" type="submit" id="form-submit"><i
+                                class="material-icons mdi mdi-message-outline"></i> SendMessage
+                        </button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

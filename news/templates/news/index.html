@@ -1,107 +1,57 @@
-{% extends 'news/default.html' %}{% load static %}
+{% extends 'default.html' %}
+{% load news_tags %}
+{% load static %}
 {% block content %}
 <style type="text/css">
   .news-img img{
     width:100%;
   }
+
+
 </style>
-<nav class="navbar fixed-top navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Capsula</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-
-      </form>
-    </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Capsula</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto mb-2 mb-md-0 col-lg-8">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Главная</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link active" href="/news">Новости</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/chat" tabindex="-1" aria-disabled="false">Чат</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contacts" tabindex="-1" aria-disabled="false">Контакты</a>
-        </li>
-      </ul>
-      <form class="d-flex col-lg-4">
-<!--        <input class="form-control mr-2" type="search" placeholder="Поиск" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">ОК</button>-->
-                  <button type="button" class="btn btn-primary" style="margin: 0 12px 0 0;">Войти в аккант</button>
-          <button type="button" class="btn btn-secondary">Регистрация</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid" data-wow-delay=".2s" style="height: 100px;"></div>
+<div class="container-fluid" data-wow-delay=".2s" style="height: 40px;"></div>
 <div class="container col-lg-7  wow animated fadeInUp">
-  <div class="col-md-2" style="float:left;position:sticky;top: 90px;margin: 95px 0px 0px 0px;">
-    {% for item in categories %}
-    <div class="row"><a href="category/{{ item.id }}/" style="font-size: 20px;color: #191919;line-height:1.9;">{{ item }}</a></div>
-    {% endfor %}
+    <div class="col-md-2" style="float:left;position:sticky;top: 90px;margin: 95px 0px 0px 0px;">
+        <div class="row"><a href="{% url 'news' %}" style="font-size: 20px;color: #191919;line-height:1.9;">Все
+            статьи</a></div>
 
-  </div>
-  <div class="container col-lg-8">
-      <h1 class="col-lg-12" style="text-align: left;float:left;">Статьи </h1>
-    <p>Найдено статей: {{ news.count }}</p>
-      <div class="col-lg-12" style="height:0px;"></div>
-    <hr />
-    {% for item in news %}
-<div class="card col-lg-12 " style="margin-bottom: 20px;">
-  <h5 class="card-header" style="padding-top: 12px;
+        {% show_categories %}
+
+    </div>
+    <div class="container col-lg-8">
+        <h1 class="col-lg-12" style="text-align: left;float:left;">Статьи </h1>
+        <p>Найдено статей: {{ news.count }}</p>
+        <div class="col-lg-12" style="height:0px;"></div>
+        <hr/>
+        {% for item in news %}
+        <div class="card col-lg-12 " style="margin-bottom: 20px;">
+            <h5 class="card-header" style="padding-top: 12px;
     font-size: 17px;
     padding-bottom: 14px;
-    color: #000000;">{{ item.category }}</h5>
-      <div class="col-md-12 col-lg-12 news-img">
-      {% if item.photo %}
-      <img src="{{ item.photo.url }}"  alt="......">
-      {% else %}
-      <img src="https://picsum.photos/seed/picsum/200/300" alt="">
-      {% endif %}
-    </div>
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h2 class="card-title"><strong>{{ item.title }}</strong></h2>
-        <p class="card-text" style="overflow: hidden;
+    color: #000000;"><a href="{% url 'category' item.category.pk %}">{{ item.category }}</a></h5>
+            <div class="col-md-12 col-lg-12 news-img">
+                {% if item.photo %}
+                <img src="{{ item.photo.url }}" alt="......">
+                {% else %}
+                <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+                {% endif %}
+            </div>
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title"><strong>{{ item.title }}</strong></h2>
+                        <p class="card-text" style="overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;">{{ item.content }}</p>
-        <p class="card-text"><small class="text-muted">{{ item.created_att|date:"Y-m-d H:i:s" }}</small></p>
-        <a href="#" class="btn btn-primary">Читать полностью</a>
-      </div>
-    </div>
-  </div>
-</div>
-    {% endfor %}
+                        <p class="card-text"><small class="text-muted">{{ item.created_att|date:"Y-m-d H:i:s" }}</small>
+                        </p>
+                        <a href="#" class="btn btn-primary">Читать полностью</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
